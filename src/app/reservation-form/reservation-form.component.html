@@ -1,0 +1,44 @@
+<app-home> </app-home>
+
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label>
+                Check-in Date
+        </label>
+        <input class="form-control" type="date" formControlName="checkInDate">
+        <div *ngIf="reservationForm.get('checkInDate')?.invalid">
+            Check-in date is required
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>
+                Check-out Date
+        </label>
+        <input class="form-control" type="date" formControlName="checkOutDate">
+    </div>
+
+    <div class="mb-3">
+        <label>
+                Guest Name
+        </label>
+        <input class="form-control" type="text" formControlName="guestName">
+    </div>
+
+    <div class="mb-3">
+        <label>
+                Guest Mail
+        </label>
+        <input class="form-control" type="email" formControlName="guestMail">
+    </div>
+
+    <div class="mb-3">
+        <label>
+                Room Number
+        </label>
+        <input class="form-control" type="number" formControlName="roomNumber">
+    </div>
+
+
+<button class="btn btn-primary my-3" type="submit" [disabled]="reservationForm.invalid">Submit </button>
+</form>
